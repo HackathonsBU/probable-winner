@@ -42,7 +42,6 @@ df_symp_list = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'dischromic _pat
                 'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze']
 
 
-#Predict best matching words
 
 
 #Start of prediction function
@@ -84,29 +83,33 @@ def data_ripper(inp_arr):
     train, test = train_test_split(symptoms,test_size=0.2)
     X_train = train.drop("Disease",axis=1)
     y_train = train["Disease"].copy()
-    X_test = test.drop("Disease",axis=1)
-    y_test = test["Disease"].copy()
+    # X_test = test.drop("Disease",axis=1)
+    # y_test = test["Disease"].copy()
 
     rnd_forest = RandomForestClassifier()
     rnd_forest.fit(X_train,y_train)
 
     cross_val_score(rnd_forest,X_train,y_train,cv=10).mean()
 
-    df_symnp_list = symptoms.columns.drop("Disease")
-    df_symnp_list = list(df_symnp_list)
-    for i in range(131):
-        df_symnp_list[i] = df_symnp_list[i].strip()
+#To create the df_symp_list
+    # df_symnp_list = symptoms.columns.drop("Disease")
+    # df_symnp_list = list(df_symnp_list)
+    # for i in range(131):
+    #     df_symnp_list[i] = df_symnp_list[i].strip()
 
 
-    y_pred = rnd_forest.predict(X_test)
 
     #Create numeric array
     for i in range(131):
-        if df_symnp_list[i] in inp_arr:
-            df_symnp_list[i] = 1;
+        if df_symp_list[i] in inp_arr:
+            df_symp_list[i] = 1;
         else:
-            df_symnp_list[i] = 0;
+            df_symp_list[i] = 0;
 
-    df_t = pd.DataFrame([df_symnp_list])
+    df_t = pd.DataFrame([df_symp_list])
     df_pd = rnd_forest.predict(df_t)
-    print(df_pd)
+    return df_pd
+
+
+def df_sym_list():
+    return df_symp_list
