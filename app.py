@@ -11,11 +11,12 @@ port_x = int(os.environ.get('PORT', 5000))
 def index():
     dct = {"greeting": "Hello from our API"}
     return dct
-@app.route('/<name>')
+
+# Get input from url
+@app.route("/<name>")
 def hello(name):
-    arr.append(name)
-    print(arr)
-    return 'Hello ' + name
+    dct = {"greeting": "Hello " + name}
+    return dct
 
 # Run the app
 if __name__ == '__main__':
