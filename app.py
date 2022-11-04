@@ -4,8 +4,12 @@ from flask import Flask
 app = Flask(__name__)
 
 # Get input from url
+
+arr = []
 @app.route('/<name>')
 def hello(name):
+    arr.append(name)
+    print(arr)
     return 'Hello ' + name
 
 # Run the app
