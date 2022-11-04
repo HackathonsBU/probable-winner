@@ -9,7 +9,7 @@ arr = []
 port_x = int(os.environ.get('PORT', 5000))
 @app.route("/")
 def index():
-    dct = {"name": "John", "age": 30, "city": "New York"}
+    dct = {"greeting": "Hello from our API"}
     return dct
 @app.route('/<name>')
 def hello(name):
