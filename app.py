@@ -15,7 +15,7 @@ def index():
 # Get input from url
 @app.route("/<name>")
 def hello(name):
-    dct_x = {"greeting": "Hello " + name}
+    dct_x = {"GreetUser": "Hello " + name}
     return dct_x
 
 # Run the app
