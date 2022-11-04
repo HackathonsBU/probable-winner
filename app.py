@@ -6,6 +6,10 @@ app = Flask(__name__)
 # Get input from url
 
 arr = []
+
+@app.route("/")
+def index():
+    return "Hello World!"
 @app.route('/<name>')
 def hello(name):
     arr.append(name)
