@@ -1,9 +1,13 @@
 from flask import Flask
 
+# Flask API to Get and Post Data
 app = Flask(__name__)
-@app.route("/")
-def hello():
-    return "Hello, Hi!"
 
+# Get input from url
+@app.route('/<name>')
+def hello(name):
+    return 'Hello ' + name
+
+# Run the app
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
