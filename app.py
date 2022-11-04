@@ -1,5 +1,10 @@
 from flask import Flask
 import os
+import difflib
+
+#Import variable df_symnp_list from prediction_module.py
+from prediction_module import df_symnp_list
+
 # Flask API to Get and Post Data
 app = Flask(__name__)
 
@@ -13,10 +18,10 @@ def index():
     return dct
 
 # Get input from url
-@app.route("/<name>")
+@app.route("/<sentence>")
 def hello(name):
-    dct_x = {"GreetUser": "Hello " + name}
-    return dct_x
+    the_symptoms = difflib.get_close_matches('',df_symp_list,cutoff=.30)
+    return the_symptoms
 
 # Run the app
 if __name__ == '__main__':
