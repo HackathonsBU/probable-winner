@@ -1,5 +1,4 @@
-from prediction_module import data_ripper
+from prediction_module import predict_disease
 
-print(data_ripper(["shivering", "chills", "watering from eyes"]))
+print(predict_disease(["skin_rash", "nodal_skin_eruptions", "itching"]))
 
-itching,rash, rashes, nodal,vomiting, dehydration, diarrhoea, vomiting, breathlessness, sweating, blackheads, scurring
