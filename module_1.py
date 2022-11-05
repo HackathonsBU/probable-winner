@@ -1,4 +1,4 @@
-from prediction_module import predict_disease
+from prediction_module import data_ripper
 
-print(predict_disease(["skin_rash", "nodal_skin_eruptions", "itching"]))
+print(data_ripper(["skin_rash", "nodal_skin_eruptions", "itching"]))
 
