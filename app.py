@@ -7,6 +7,7 @@ import pandas as pd
 #Import variable df_symnp_list from prediction_module.py
 from prediction_module import df_sym_list
 from prediction_module import data_ripper
+from prediction_module import predict_med
 
 #Use that big list to compare user input with
 
@@ -90,7 +91,11 @@ def matching_disease(d1,d2,d3):
 
     return {"disease": df_pd[0]}
 
-
+@app.route("/suggest_medicine/<dis>")
+def tell_meds(dis):
+    mds = predict_med(dis)
+    mods = {"medicine" : mds}
+    return mods
 
 # Run the app
 if __name__ == '__main__':
