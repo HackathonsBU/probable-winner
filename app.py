@@ -11,7 +11,7 @@ from prediction_module import data_ripper
 #Use that big list to compare user input with
 
 
-the_symp_to_predict_from = ["itching","skin_rash", "skin_rashes", "nodal_skin_eruptions","vomiting", "dehydration", "diarrhoea", "vomiting", "breathlessness", "sweating", "blackheads", "scurring"]
+the_symp_to_predict_from = ["itching","skin_rash", "skin_rashes", "nodal_skin_eruptions","vomiting", "dehydration", "diarrhoea", "vomiting", "breathlessness", "sweating", "blackheads", "scurring", "chest pain", "chestpain"]
 
 # Flask API to Get and Post Data
 app = Flask(__name__)
