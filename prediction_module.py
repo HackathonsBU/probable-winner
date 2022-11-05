@@ -46,7 +46,7 @@ df_symp_list = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'dischromic _pat
 
 #Start of prediction function
 
-def data_ripper(inp_arr):
+def data_ripper():
     df = pd.read_csv("Warehouse_Data/dataset.csv")
 
     df.head()
@@ -88,8 +88,7 @@ def data_ripper(inp_arr):
 
     rnd_forest = RandomForestClassifier()
     rnd_forest.fit(X_train,y_train)
-
-    cross_val_score(rnd_forest,X_train,y_train,cv=10).mean()
+    return rnd_forest
 
 #To create the df_symp_list
     # df_symnp_list = symptoms.columns.drop("Disease")
@@ -98,17 +97,6 @@ def data_ripper(inp_arr):
     #     df_symnp_list[i] = df_symnp_list[i].strip()
 
 
-
-    #Create numeric array
-    for i in range(131):
-        if df_symp_list[i] in inp_arr:
-            df_symp_list[i] = 1;
-        else:
-            df_symp_list[i] = 0;
-
-    df_t = pd.DataFrame([df_symp_list])
-    df_pd = rnd_forest.predict(df_t)
-    return df_pd
 
 
 def df_sym_list():
