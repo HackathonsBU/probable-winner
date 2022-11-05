@@ -10,7 +10,7 @@ from prediction_module import data_ripper
 
 #Use that big list to compare user input with
 the_df_symnp_list = df_sym_list()
-
+the_symp_to_predict_from = ["itching","skin_rash", "skin_rashes", "nodal_skin_eruptions","vomiting", "dehydration", "diarrhoea", "vomiting", "breathlessness", "sweating", "blackheads", "scurring"]
 # Flask API to Get and Post Data
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def index():
 # Get input from url
 @app.route("/symptom_predict/<word>")
 def matching_symptoms(word):
-    the_symptom_i = difflib.get_close_matches(word,the_df_symnp_list,cutoff=.30)
+    the_symptom_i = difflib.get_close_matches(word,the_symp_to_predict_from,cutoff=.30)
     return {"symptom": the_symptom_i[0]}
 
 
