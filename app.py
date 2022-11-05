@@ -12,6 +12,7 @@ from prediction_module import data_ripper
 
 
 the_symp_to_predict_from = ["itching","skin_rash", "skin_rashes", "nodal_skin_eruptions","vomiting", "dehydration", "diarrhoea", "vomiting", "breathlessness", "sweating", "blackheads", "scurring"]
+
 # Flask API to Get and Post Data
 app = Flask(__name__)
 
