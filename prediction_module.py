@@ -107,11 +107,11 @@ def predict_med(dis):
     disease_meds = pd.DataFrame(disease_meds)
     disease_meds
     medicines = ["clotrimazole", "Cetirizine", "esomeprazole", "ursodiol", "Benadryl", "omeprazole",
-                 "You Have To Consult Doctor", "Fortamet", "A MED 9", "A MED 10", "A MED 11", "A MED 12", "A MED 13",
+                 "You Have To Consult Doctor", "Fortamet", "ondansetron", "A MED 10", "A MED 11", "A MED 12", "A MED 13",
                  "A MED 14", "A MED 15", "A MED 16", "A MED 17", "A MED 18", "A MED 19", "A MED 20", "A MED 21",
                  "A MED 22", "A MED 23", "A MED 24", "A MED 25", "A MED 26", "A MED 27", "A MED 28", "A MED 29",
                  "Aspirin", "A MED 31", "A MED 32", "A MED 34", "A MED 35", "A MED 36", "A MED 37", "A MED 38",
-                 "A MED 39", "A MED 40", "A MED 41", "A MED 42"]
+                 "Benzoyl peroxide", "A MED 40", "A MED 41", "A MED 42"]
     disease_meds["Medicine"] = medicines
     return disease_meds[disease_meds["Disease"] == dis]["Medicine"].item()
 def df_sym_list():
