@@ -1,9 +1,14 @@
 from flask import Flask, request
 from openai import OpenAI
+import os
 
-client = OpenAI(api_key = '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')
+# Load OpenAI API key from environment variable
+openai_api_key = os.getenv("OPENAI_API_KEY")
+if not openai_api_key:
+    raise ValueError("OpenAI API key not found in environment variables.")
+
+client = OpenAI(api_key=openai_api_key)
 app = Flask(__name__)
-
 
 @app.route("/symptom_predict/<word>")
 def matching_symptoms(word):
@@ -23,13 +28,7 @@ def matching_symptoms(word):
 
     # Convert ChatCompletionMessage to dictionary
 
-
     return {"symptom": gpt3_response}
-
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
